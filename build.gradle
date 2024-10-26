@@ -1,0 +1,22 @@
+// Apply the Java plugin
+plugins {
+    id 'java'
+}
+
+// Define repositories for dependencies
+repositories {
+    mavenCentral()
+}
+
+// Define project dependencies
+dependencies {
+    // TestNG dependency
+    testImplementation 'org.testng:testng:7.10.2'
+    // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
+    implementation 'org.seleniumhq.selenium:selenium-java:4.25.0'
+}
+test {
+    useJUnitPlatform() // For JUnit 5
+    useTestNG() // Uncomment if using TestNG
+}
+
