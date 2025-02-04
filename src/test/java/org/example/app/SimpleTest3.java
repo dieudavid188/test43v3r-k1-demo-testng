@@ -82,6 +82,18 @@ public class SimpleTest3 {
         Assert.assertEquals(dashboardPage.getText(dashboardPage.liTextCredentialsIncorrect()), "No customer account found");
     }
 
+    @Test(description ="")
+    public void verifyEnterIs(){
+        driver.navigate().to(baseUrl);
+        if (driver == null) {
+            throw new IllegalStateException("WebDriver chưa được khởi tạo!");
+        }
+        DashboardPage dashboardPage = new DashboardPage(driver);
+        dashboardPage.loginByEnter();
+        Assert.assertEquals(dashboardPage.getText(dashboardPage.spanTextUnsuccessful()), "Login was unsuccessful. Please correct the errors and try again.");
+        Assert.assertEquals(dashboardPage.getText(dashboardPage.liTextCredentialsIncorrect()), "No customer account found");
+    }
+
     @AfterMethod
     public void tearDown() {
         if (driver != null) {
